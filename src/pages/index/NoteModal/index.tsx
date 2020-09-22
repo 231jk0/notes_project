@@ -6,6 +6,8 @@ import { ShowPrettyJson } from 'utils/debug.util/ShowPrettyJson';
 const NoteModal = () => {
 	const notes = useNotes();
 
+	console.log(notes.isEditModeActive());
+
 	return (
 		<Modal
 			className="note-modal"
@@ -13,19 +15,29 @@ const NoteModal = () => {
 			isOpen={notes.getSelectedId() !== ''}
 		>
 			<div className="note-modal__buttons">
-				<div className="note-modal__back-button">
+				<div
+					className="note-modal__back-button"
+					onClick={() => notes.setIsEditModeActive(false)}
+				>
 					b
 				</div>
 
-				<div className="note-modal__edit-button">
-					e
-				</div>
+				{
+					!notes.isEditModeActive() && (
+						<div
+							className="note-modal__edit-button"
+							onClick={() => notes.setIsEditModeActive(true)}
+						>
+							e
+						</div>
+					)
+				}
 
 				<div className="note-modal__save-button">
 					s
 				</div>
 
-				<div className="note-modal__edit-button">
+				<div className="note-modal__delete-button">
 					d
 				</div>
 			</div>

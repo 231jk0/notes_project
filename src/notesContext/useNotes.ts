@@ -59,6 +59,17 @@ const useNotes = () => {
 		return notesState.data.find((note) => notesState.currentlyOpen === note.id) || {};
 	};
 
+	const isEditModeActive = () => {
+		return notesState.isEditModeActive;
+	};
+
+	const setIsEditModeActive = (isActive: boolean) => {
+		dispatch({
+			type: 'UPDATE_IS_EDIT_MODE_ACTIVE',
+			payload: isActive
+		});
+	};
+
 	return {
 		getAll,
 		getAllIds,
@@ -69,7 +80,9 @@ const useNotes = () => {
 		open,
 		close,
 		getSelectedId,
-		getSelected
+		getSelected,
+		isEditModeActive,
+		setIsEditModeActive
 	};
 };
 

@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import { notesReducer } from './notesReducer';
+import { notesReducer, Note } from './notesReducer';
 
 export const NoteContext = createContext({} as any);
 
@@ -11,14 +11,16 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 		notesReducer,
 		{
 			currentlyOpen: '',
-			data: []
+			isEditModeActive: false,
+			data: [] as Note[]
 		},
 		() => {
 			const localData = localStorage.getItem('notesState');
 
 			return {
 				currentlyOpen: '',
-				data: localData ? JSON.parse(localData) : []
+				isEditModeActive: false,
+				data: (localData ? JSON.parse(localData) : []) as Note[]
 			};
 		}
 	);

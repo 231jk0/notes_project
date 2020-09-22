@@ -7,6 +7,7 @@ export interface Note {
 
 export type NotesState = {
 	currentlyOpen: string;
+	isEditModeActive: boolean;
 	data: Note[];
 }
 
@@ -51,12 +52,19 @@ export const notesReducer = (state: NotesState, action) => {
 		case 'OPEN_NOTE':
 			return {
 				...state,
-				currentlyOpen: action.id
+				currentlyOpen: action.id,
+				isEditModeActive: false
 			};
 		case 'CLOSE_NOTE':
 			return {
 				...state,
-				currentlyOpen: ''
+				currentlyOpen: '',
+				isEditModeActive: false
+			};
+		case 'UPDATE_IS_EDIT_MODE_ACTIVE':
+			return {
+				...state,
+				isEditModeActive: action.payload
 			};
 		default:
 			return state;
