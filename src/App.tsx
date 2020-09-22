@@ -1,7 +1,6 @@
 import NoteProvider from 'notesContext/NoteProvider';
 import React from 'react';
-import Book from 'components/Book';
-import TestNote from 'components/TestNote';
+import Notes from 'components/Notes';
 import Input from 'components/Input';
 
 interface State {
@@ -22,7 +21,7 @@ export default class App extends React.PureComponent<{}, State> {
 	render () {
 		return (
 			<NoteProvider>
-				<TestNote />
+				<Notes />
 				<Input
 					id="test"
 					type="text"

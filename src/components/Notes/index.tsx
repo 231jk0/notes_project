@@ -2,7 +2,7 @@ import useNotes from 'notesContext/useNotes';
 import React from 'react';
 import { ShowPrettyJson } from 'utils/debug.util/ShowPrettyJson';
 
-const TestNote = () => {
+const Notes = () => {
 	const notes = useNotes();
 
 	return (
@@ -15,4 +15,4 @@ const TestNote = () => {
 	);
 };
 
-export default TestNote;
+export default Notes;

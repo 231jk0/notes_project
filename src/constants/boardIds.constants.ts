@@ -1,9 +1,0 @@
-export const BOARD_ELEMENT = 'board-element' as const;
-export const GRID = 'grid' as const;
-export const GRID_OVERLAY = 'grid-overlay' as const;
-export const GRID_CONTAINER = 'grid-container' as const;
-export const IMAGE_PLACEHOLDER = 'image-placeholder' as const;
-export const NEW_ELEMENT_PLACEHOLDER = 'new-element-placeholder' as const;
-export const PLACEHOLDER = 'placeholder' as const;
-export const TEXT_PLACEHOLDER = 'text-placeholder' as const;
-export const TRASH = 'trash' as const;

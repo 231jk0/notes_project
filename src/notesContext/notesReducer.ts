@@ -8,7 +8,7 @@ interface Note {
 
 type NotesState = Note[];
 
-export const useNotesReducer = (state: NotesState, action) => {
+export const notesReducer = (state: NotesState, action) => {
 	switch (action.type) {
 		case 'ADD_NOTE':
 			return [

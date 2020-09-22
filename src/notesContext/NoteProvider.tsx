@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import { useNotesReducer } from './useNotesReducer';
+import { notesReducer } from './notesReducer';
 
 export const NoteContext = createContext({} as any);
 
@@ -8,7 +8,7 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 		notes,
 		dispatch
 	] = useReducer(
-		useNotesReducer,
+		notesReducer,
 		[],
 		() => {
 			const localData = localStorage.getItem('notes');
