@@ -2,41 +2,62 @@ import uuid from 'uuid/v4';
 
 interface Note {
 	id: string;
-	title: string;
-	author: string;
+	source: string;
 }
 
-type NotesState = Note[];
+type NotesState = {
+	currentlyOpen: string;
+	data: Note[];
+}
 
 export const notesReducer = (state: NotesState, action) => {
 	switch (action.type) {
 		case 'ADD_NOTE':
-			return [
+			return {
 				...state,
-				{
-					id: uuid(),
-					source: action.source
-				}
-			];
+				data: [
+					...state.data,
+					{
+						id: uuid(),
+						source: action.source
+					}
+				]
+			};
 		case 'REMOVE_NOTE':
-			return state.filter(note => note.id !== action.id);
+			return {
+				...state,
+				data: state.data.filter(note => note.id !== action.id)
+			};
 		case 'UPDATE_NOTE':
-			const newState = [];
+			const newData = [];
 
-			for (const note of state) {
+			for (const note of state.data) {
 				if (note.id === action.id) {
-					newState.push({
+					newData.push({
 						...note,
-						title: action.title
+						source: action.source
 					});
 
 					continue;
 				}
 
-				newState.push(note);
+				newData.push(note);
 			}
 
-			return newState;
+			return {
+				...state,
+				data: newData
+			};
+		case 'OPEN_NOTE':
+			return {
+				...state,
+				currentlyOpen: action.id
+			};
+		case 'CLOSE_NOTE':
+			return {
+				...state,
+				currentlyOpen: ''
+			};
 		default:
 			return state;
 	}

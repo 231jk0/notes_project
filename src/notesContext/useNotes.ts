@@ -1,26 +1,26 @@
-import { useContext } from 'react';
 import { NoteContext } from 'notesContext/NoteProvider';
+import { useContext } from 'react';
 
 const useNotes = () => {
-	const { notes, dispatch } = useContext(NoteContext);
+	const { notesState, dispatch } = useContext(NoteContext);
 
 	const getAll = () => {
-		return notes;
+		return notesState?.data;
 	};
 
 	const getAllIds = () => {
-		return notes.map(note => note.id);
+		return notesState.data.map(note => note.id);
 	};
 
 	const get = (id) => {
-		return notes.find(note => note.id === id);
+		return notesState.data.find(note => note.id === id);
 	};
 
 	const save = (id, source) => {
 		dispatch({
 			type: 'UPDATE_NOTE',
 			id,
-			title: source
+			source
 		});
 	};
 
@@ -38,13 +38,38 @@ const useNotes = () => {
 		});
 	};
 
+	const open = (id) => {
+		dispatch({
+			type: 'OPEN_NOTE',
+			id
+		});
+	};
+
+	const close = () => {
+		dispatch({
+			type: 'CLOSE_NOTE'
+		});
+	};
+
+	const getSelectedId = () => {
+		return notesState.data.find(notesState.currentlyOpen).id;
+	};
+
+	const getSelected = () => {
+		return notesState.data.find(notesState.currentlyOpen);
+	};
+
 	return {
 		getAll,
 		getAllIds,
 		get,
 		save,
 		add,
-		remove
+		remove,
+		open,
+		close,
+		getSelectedId,
+		getSelected
 	};
 };
 
