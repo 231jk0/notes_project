@@ -18,6 +18,8 @@ const NotesList = () => {
 
 	const data = notes.getAll() || [];
 
+	console.log('render');
+
 	return (
 		<div className="notes-grid">
 			<button
@@ -30,10 +32,7 @@ const NotesList = () => {
 				/>
 			</button>
 			{
-				data.map(({
-					id,
-					source
-				}: Note) => (
+				data.map(({ id, source }: Note) => (
 					<div
 						key={id}
 						onClick={openNote.bind(this, id)}

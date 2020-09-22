@@ -9,11 +9,7 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 		dispatch
 	] = useReducer(
 		notesReducer,
-		{
-			currentlyOpen: '',
-			isEditModeActive: false,
-			data: [] as Note[]
-		},
+		{},
 		() => {
 			const localData = localStorage.getItem('notesState');
 

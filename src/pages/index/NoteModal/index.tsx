@@ -8,14 +8,15 @@ const NoteModal = () => {
 	const notes = useNotes();
 	const [ source, setSource ] = useState('');
 
+	const selectedNote = notes.getSelected();
+	const { id: selectedId = ''} = selectedNote;
+
+	const isOpen = selectedId !== '';
+	const isEditModeActive = notes.isEditModeActive();
+
 	const closeModal = () => {
 		notes.close();
 	};
-
-	const isEditModeActive = notes.isEditModeActive();
-	const selectedNote = notes.getSelected();
-	const { id: selectedId } = selectedNote;
-	const isOpen = notes.getSelectedId() !== '';
 
 	const goBack = () => {
 		isEditModeActive
@@ -42,10 +43,12 @@ const NoteModal = () => {
 		setSource(event.target.value);
 	};
 
+	console.log('render');
+
 	return (
 		<Modal
 			className="note-modal"
-			onModalOverlayClick={closeModal}
+			// onModalOverlayClick={closeModal}
 			isOpen={isOpen}
 		>
 			<div className="note-modal__buttons">
