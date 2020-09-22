@@ -1,53 +1,52 @@
+import Icon from 'components/Icon';
+import { INITIAL_NOTE_SOURCE } from 'constants/notes.constants';
+import { Note } from 'notesContext/notesReducer';
 import useNotes from 'notesContext/useNotes';
 import React from 'react';
-import { Note } from 'notesContext/notesReducer';
 import ReactMarkdown from 'react-markdown';
-import Icon from 'components/Icon';
 
 const NotesList = () => {
 	const notes = useNotes();
 
+	const addNote = () => {
+		notes.add(INITIAL_NOTE_SOURCE);
+	};
+
+	const openNote = (id: string) => {
+		notes.open(id);
+	};
+
+	const data = notes.getAll() || [];
+
 	return (
-		<>
-			<div className="notes-grid">
-				<button
-					onClick={() => notes.add('default content')}
-					className="notes-grid__add-note-button"
-				>
-					<Icon
-						className="notes-grid__add-note-button-icon"
-						iconName="plus"
-					/>
-				</button>
-				{
-					notes.getAll().map((note: Note) => (
-						<div
-							key={note.id}
-							onClick={() => notes.open(note.id)}
-							className="notes-grid__item"
-						>
-							<div
-								onClick={() => notes.remove(note.id)}
-								className="remove"
-								style={{
-									position: 'absolute',
-									top: 0,
-									right: 0,
-									width: 10,
-									height: 10,
-									background: 'yellow'
-								}}
-							>
-							</div>
-							<ReactMarkdown
-								className="notes-grid__item-source"
-								source={note.source}
-							/>
-						</div>
-					))
-				}
-			</div>
-		</>
+		<div className="notes-grid">
+			<button
+				onClick={addNote}
+				className="notes-grid__add-note-button"
+			>
+				<Icon
+					className="notes-grid__add-note-button-icon"
+					iconName="plus"
+				/>
+			</button>
+			{
+				data.map(({
+					id,
+					source
+				}: Note) => (
+					<div
+						key={id}
+						onClick={openNote.bind(this, id)}
+						className="notes-grid__item"
+					>
+						<ReactMarkdown
+							className="notes-grid__item-source"
+							source={source}
+						/>
+					</div>
+				))
+			}
+		</div>
 	);
 };
 
