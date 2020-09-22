@@ -5,24 +5,27 @@ export const NoteContext = createContext({} as any);
 
 const NoteProvider = (props: { children: React.ReactNode }) => {
 	const [
-		books,
+		notes,
 		dispatch
 	] = useReducer(
 		useNotesReducer,
 		[],
 		() => {
-			const localData = localStorage.getItem('books');
+			const localData = localStorage.getItem('notes');
 
 			return localData ? JSON.parse(localData) : [];
 		}
 	);
 
 	useEffect(() => {
-		localStorage.setItem('books', JSON.stringify(books));
-	}, [ books ]);
+		localStorage.setItem('notes', JSON.stringify(notes));
+	}, [ notes ]);
 
 	return (
-		<NoteContext.Provider value={{ books, dispatch }}>
+		<NoteContext.Provider value={{
+			notes,
+			dispatch
+		}}>
 			{ props.children }
 		</NoteContext.Provider>
 	);

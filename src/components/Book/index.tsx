@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { NoteContext } from 'notesContext/NoteProvider';
 
 const Book = () => {
-	const { books, dispatch } = useContext(NoteContext);
+	const { notes, dispatch } = useContext(NoteContext);
 
-	const addBook = () => {
+	const addNote = () => {
 		dispatch({
-			type: 'ADD_BOOK',
-			book: {
+			type: 'ADD_NOTE',
+			note: {
 				title: 'title',
 				author: 'author'
 			}
@@ -17,9 +17,9 @@ const Book = () => {
 	return (
 		<div className="navbar">
 			<h1>Ninja Reading List</h1>
-			<p>Currently you have { books.length } books to get through...</p>
+			<p>Currently you have { notes.length } books to get through...</p>
 			<button
-				onClick={addBook}
+				onClick={addNote}
 			>
 				dodaj
 			</button>
