@@ -5,13 +5,10 @@ interface Props {
 	id: string;
 	className?: string;
 	type: 'text' | 'password' | 'number';
-	label: string;
 	value?: string | string[] | number;
 	placeholder?: string;
 	rows?: number;
 	maxLength?: number;
-	infoMessage?: string;
-	errorMessage?: string;
 	isDisabled?: boolean;
 	isValid?: boolean;
 
@@ -25,17 +22,11 @@ class Input extends React.PureComponent<Props> {
 	}
 
 	getBaseClasses = () => {
-		const {
-			className,
-			errorMessage,
-			isValid
-		} = this.props;
+		const { className } = this.props;
 
 		return [
 			className,
-			'input',
-			!!errorMessage && 'input--invalid',
-			isValid && 'input--valid'
+			'input'
 		];
 	}
 
@@ -43,11 +34,8 @@ class Input extends React.PureComponent<Props> {
 		const {
 			id,
 			type,
-			label,
 			value,
 			placeholder,
-			infoMessage,
-			errorMessage,
 			isDisabled,
 			rows,
 			maxLength,
@@ -56,59 +44,35 @@ class Input extends React.PureComponent<Props> {
 		} = this.props;
 
 		return (
-			<div
-				className={classes([
-					'form-group'
-				])}
-			>
-				<label
-					className="form-group__label"
-					htmlFor={id}
-				>
-					{ label }:
-				</label>
-				{
-					rows
-						? (
-							<textarea
-								id={id}
-								className={classes([
-									...this.getBaseClasses(),
-									'input--textarea'
-								])}
-								value={value}
-								placeholder={placeholder}
-								disabled={isDisabled}
-								rows={rows}
-								maxLength={maxLength}
-								onChange={onChange}
-								onBlur={onBlur}
-							/>
-						) : (
-							<input
-								id={id}
-								className={classes([ ...this.getBaseClasses() ])}
-								type={type}
-								value={value}
-								placeholder={placeholder}
-								disabled={isDisabled}
-								maxLength={maxLength}
-								onChange={onChange}
-								onBlur={onBlur}
-							/>
-						)
-				}
-				{
-					errorMessage && (
-						<div className="error-message">{ errorMessage }</div>
-					)
-				}
-				{
-					!errorMessage && infoMessage && (
-						<small className="info-message">{ infoMessage }</small>
-					)
-				}
-			</div>
+			rows
+				? (
+					<textarea
+						id={id}
+						className={classes([
+							...this.getBaseClasses(),
+							'input--textarea'
+						])}
+						value={value}
+						placeholder={placeholder}
+						disabled={isDisabled}
+						rows={rows}
+						maxLength={maxLength}
+						onChange={onChange}
+						onBlur={onBlur}
+					/>
+				) : (
+					<input
+						id={id}
+						className={classes([ ...this.getBaseClasses() ])}
+						type={type}
+						value={value}
+						placeholder={placeholder}
+						disabled={isDisabled}
+						maxLength={maxLength}
+						onChange={onChange}
+						onBlur={onBlur}
+					/>
+				)
 		);
 	}
 }
