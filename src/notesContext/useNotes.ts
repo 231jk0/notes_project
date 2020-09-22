@@ -52,11 +52,11 @@ const useNotes = () => {
 	};
 
 	const getSelectedId = () => {
-		return notesState.data.find(notesState.currentlyOpen).id;
+		return notesState.currentlyOpen;
 	};
 
 	const getSelected = () => {
-		return notesState.data.find(notesState.currentlyOpen);
+		return notesState.data.find((note) => notesState.currentlyOpen === note.id) || {};
 	};
 
 	return {

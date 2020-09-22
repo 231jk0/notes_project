@@ -14,7 +14,7 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 			data: []
 		},
 		() => {
-			const localData = localStorage.getItem('notes');
+			const localData = localStorage.getItem('notesState');
 
 			return {
 				currentlyOpen: '',
@@ -25,7 +25,7 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 
 	useEffect(() => {
 		localStorage.setItem('notesState', JSON.stringify(notesState.data));
-	}, [ notesState.data ]);
+	}, [ notesState ]);
 
 	return (
 		<NoteContext.Provider value={{

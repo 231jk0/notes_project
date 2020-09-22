@@ -1,11 +1,11 @@
 import uuid from 'uuid/v4';
 
-interface Note {
+export interface Note {
 	id: string;
 	source: string;
 }
 
-type NotesState = {
+export type NotesState = {
 	currentlyOpen: string;
 	data: Note[];
 }

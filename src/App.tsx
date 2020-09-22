@@ -1,7 +1,5 @@
-import NoteProvider from 'notesContext/NoteProvider';
+import HomePage from 'pages/index';
 import React from 'react';
-import Notes from 'components/Notes';
-import Input from 'components/Input';
 
 interface State {
 	test: string;
@@ -20,16 +18,7 @@ export default class App extends React.PureComponent<{}, State> {
 
 	render () {
 		return (
-			<NoteProvider>
-				<Notes />
-				<Input
-					id="test"
-					type="text"
-					label="input"
-					value={this.state.test}
-					onChange={this.onChange}
-				/>
-			</NoteProvider>
+			<HomePage />
 		);
 	}
 }

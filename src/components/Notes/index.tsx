@@ -17,10 +17,9 @@ const Notes = () => {
 			<button onClick={() => console.log(notes.add('testiranje'))}>Add item with source testiranje</button>
 			<button onClick={() => console.log(notes.remove(notes.getAllIds()[0]))}>Remove First item</button>
 			<button onClick={() => console.log(notes.open(notes.getAllIds()[0]))}>Open First item</button>
-			<button onClick={() => console.log(notes.open(notes.getAllIds()[0]))}>Close First item</button>
+			<button onClick={() => console.log(notes.close())}>Close item</button>
 			<button onClick={() => console.log(notes.getSelectedId())}>Get Selected Item</button>
-			<button onClick={() => console.log(notes.getSelectedId())}>Get Selected data</button>
-			<button onClick={() => notes.remove('e400a390-623b-4d83-9c2f-a852e13c7b5d')}>but</button>
+			<button onClick={() => console.log(notes.getSelected())}>Get Selected data</button>
 			<ShowPrettyJson
 				value={notes.getAll()}
 			/>

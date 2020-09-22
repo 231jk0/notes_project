@@ -1,8 +1,44 @@
-.app {
-	background: blue;
-	height: 100px;
+.notes-grid {
+	min-height: 100vh;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 250px);
+	align-items: center;
+	justify-content: center;
 
-	div {
-		background: red;
+	// grid-template-columns: repeat(auto-fit, 25rem);
+	grid-template-rows: repeat(auto-fit, 250px);
+	grid-gap: 40px;
+
+	& > * {
+		border-radius: 10px;
+		width: 100%;
+		height: 100%;
 	}
+}
+
+.notes-grid__add-note-button {
+	padding: 8px;
+	background-color: blue;
+	border: none;
+	color: white;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.notes-grid__item {
+	position: relative;
+	border: 1px solid black;
+
+	&:hover {
+		border-color: blue;
+	}
+}
+
+.notes-grid__item-source {
+	padding: 10px;
+	position: absolute;
+	top: 0;
 }
