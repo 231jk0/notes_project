@@ -2,6 +2,7 @@ import useNotes from 'notesContext/useNotes';
 import React from 'react';
 import { Note } from 'notesContext/notesReducer';
 import ReactMarkdown from 'react-markdown';
+import NoteModal from 'pages/index/NoteModal';
 
 const sourceExample =
 `This is a note
@@ -39,6 +40,7 @@ const NotesList = () => {
 					notes.getAll().map((note: Note) => (
 						<div
 							key={note.id}
+							onClick={() => notes.open(note.id)}
 							className="notes-grid__item"
 						>
 							<div
@@ -56,12 +58,13 @@ const NotesList = () => {
 							</div>
 							<ReactMarkdown
 								className="notes-grid__item-source"
-								source={sourceExample}
+								source={note.source}
 							/>
 						</div>
 					))
 				}
 			</div>
+			<NoteModal />
 		</>
 	);
 };

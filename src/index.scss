@@ -42,3 +42,64 @@
 	position: absolute;
 	top: 0;
 }
+
+$modal-z-index: 1;
+
+$overlay-background: rgba(black, 0.7);
+
+.overlay-base {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	background-color: $overlay-background;
+
+	@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+		backdrop-filter: blur(10px);
+	}
+}
+
+.modal {
+	@extend .overlay-base;
+
+	z-index: $modal-z-index;
+
+	&__content {
+		width: fit-content;
+		height: fit-content;
+		margin: auto;
+		padding: 8px;
+		background-color: white;
+
+		// @include respond-width(bp-600) {
+		// 	width: 95vw;
+		// }
+	}
+
+	&--is-open {
+		animation-name: fade-in;
+		animation-duration: .3s;
+	}
+}
+
+.note-modal {
+	min-height: 90vh;
+	min-width: 60vw;
+	margin: 5vh auto;
+
+	&__buttons {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__back-button {
+		margin-right: auto;
+	}
+
+	&__edit-button,
+	&__save-button {
+		margin-right: 10px;
+	}
+}
