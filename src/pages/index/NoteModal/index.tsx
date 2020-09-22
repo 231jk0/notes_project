@@ -1,4 +1,3 @@
-import Input from 'components/Input';
 import Modal from 'components/shared/Modal';
 import useNotes from 'notesContext/useNotes';
 import React, { useState } from 'react';
@@ -29,7 +28,17 @@ const NoteModal = () => {
 				</div>
 
 				{
-					!notes.isEditModeActive() && (
+					notes.isEditModeActive() ? (
+						<div
+							className="note-modal__save-button"
+							onClick={() => {
+								notes.save(notes.getSelectedId(), source);
+								notes.close();
+							}}
+						>
+							s
+						</div>
+					) : (
 						<div
 							className="note-modal__edit-button"
 							onClick={() => {
@@ -41,17 +50,6 @@ const NoteModal = () => {
 						</div>
 					)
 				}
-
-				<div
-					className="note-modal__save-button"
-					onClick={() => {
-						notes.save(notes.getSelectedId(), source);
-						notes.close();
-					}}
-				>
-					s
-				</div>
-
 				<div
 					className="note-modal__delete-button"
 					onClick={() => {
