@@ -1,0 +1,8 @@
+node_module/**/*
+src/serviceWorker.ts
+src/typings/*
+src/typings/*
+config/*
+scripts/*
+build/*
+src/utils/dragAndDrop.util/dragDropTouch.js

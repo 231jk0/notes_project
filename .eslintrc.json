@@ -1,0 +1,55 @@
+{
+	"env": {
+		"node": true,
+		"browser": true,
+		"es6": true
+	},
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": true,
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/explicit-member-accessibility": [
+			"warn",
+			{ "accessibility": "no-public" }
+		],
+		"@typescript-eslint/indent": ["warn", "tab"],
+		"@typescript-eslint/no-namespace": "off",
+		"array-bracket-spacing": ["warn", "always"],
+		"object-curly-spacing": ["warn", "always"],
+		"comma-dangle": ["error", "never"],
+		"indent": "off",
+		"keyword-spacing": "warn",
+		"lines-between-class-members": ["error", "always"],
+		"no-console": "warn",
+		"no-multiple-empty-lines": ["warn", { "max": 1 }],
+		"no-trailing-spaces": "warn",
+		"padded-blocks": ["error", { "classes": "never" }],
+		"quotes": ["warn", "single", "avoid-escape"],
+		"react/jsx-indent": ["warn", "tab"],
+		"react/jsx-curly-spacing": ["warn", {
+			"props": "always",
+			"children": { "when": "always" }
+		}],
+		"semi": ["error", "always"],
+		"spaced-comment": "warn"
+	},
+	"settings": {
+		"react": {
+			"version": "16.8.3"
+		}
+	}
+}
