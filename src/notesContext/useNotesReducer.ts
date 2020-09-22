@@ -1,6 +1,14 @@
 import uuid from 'uuid/v4';
 
-export const useNotesReducer = (state, action) => {
+interface Book {
+	id: string;
+	title: string;
+	author: string;
+}
+
+type NotesState = Book[];
+
+export const useNotesReducer = (state: NotesState, action) => {
 	switch (action.type) {
 		case 'ADD_BOOK':
 			return [
