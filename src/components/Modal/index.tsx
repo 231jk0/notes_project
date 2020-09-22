@@ -5,20 +5,21 @@ import { classes } from 'utils/html.util/classes';
 interface Props {
 	className?: string;
 	isOpen: boolean;
-	renderHiddenContent?: boolean; // If true modal will look nicer.
 	onModalOverlayClick?: Function;
 }
 
 class Modal extends React.PureComponent<Props> {
 	static defaultProps: Partial<Props> = {
-		className: '',
-		renderHiddenContent: false
+		className: ''
 	}
 
 	handleOverlayClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		const { onModalOverlayClick } = this.props;
 
 		const clickedOnModalOverlay = (
+			(event.target as HTMLElement)
+				.className
+				.includes &&
 			(event.target as HTMLElement)
 				.className
 				.includes('modal--is-open')
@@ -32,11 +33,10 @@ class Modal extends React.PureComponent<Props> {
 	render() {
 		const {
 			className,
-			isOpen,
-			renderHiddenContent
+			isOpen
 		} = this.props;
 
-		if (!isOpen && !renderHiddenContent) {
+		if (!isOpen) {
 			return false;
 		}
 
@@ -52,7 +52,9 @@ class Modal extends React.PureComponent<Props> {
 					'modal__content',
 					className
 				])}>
-					{ (isOpen || renderHiddenContent) && this.props.children }
+					{
+						isOpen && this.props.children
+					}
 				</div>
 			</div>
 		);

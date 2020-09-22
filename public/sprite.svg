@@ -1,16 +1,19 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-trash" viewBox="0 0 24 24">
+<symbol id="icon-plus" viewBox="0 0 24 24">
+<path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"></path>
+</symbol>
+<symbol id="icon-edit" viewBox="0 0 24 24">
+<path d="M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828q0.281-0.281 0.703-0.281t0.703 0.281l2.344 2.344q0.281 0.281 0.281 0.703t-0.281 0.703zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z"></path>
+</symbol>
+<symbol id="icon-save" viewBox="0 0 24 24">
+<path d="M15 9v-3.984h-9.984v3.984h9.984zM12 18.984q1.219 0 2.109-0.891t0.891-2.109-0.891-2.109-2.109-0.891-2.109 0.891-0.891 2.109 0.891 2.109 2.109 0.891zM17.016 3l3.984 3.984v12q0 0.797-0.609 1.406t-1.406 0.609h-13.969q-0.844 0-1.43-0.586t-0.586-1.43v-13.969q0-0.844 0.586-1.43t1.43-0.586h12z"></path>
+</symbol>
+<symbol id="icon-left" viewBox="0 0 24 24">
+<path d="M21 11.016v1.969h-14.156l3.563 3.609-1.406 1.406-6-6 6-6 1.406 1.406-3.563 3.609h14.156z"></path>
+</symbol>
+<symbol id="icon-delete" viewBox="0 0 24 24">
 <path d="M18.984 3.984v2.016h-13.969v-2.016h3.469l1.031-0.984h4.969l1.031 0.984h3.469zM6 18.984v-12h12v12q0 0.797-0.609 1.406t-1.406 0.609h-7.969q-0.797 0-1.406-0.609t-0.609-1.406z"></path>
-</symbol>
-<symbol id="icon-photo" viewBox="0 0 24 24">
-<path d="M8.484 13.5l-3.469 4.5h13.969l-4.5-6-3.469 4.5zM21 18.984q0 0.797-0.609 1.406t-1.406 0.609h-13.969q-0.797 0-1.406-0.609t-0.609-1.406v-13.969q0-0.797 0.609-1.406t1.406-0.609h13.969q0.797 0 1.406 0.609t0.609 1.406v13.969z"></path>
-</symbol>
-<symbol id="icon-text" viewBox="0 0 24 24">
-<path d="M3 12.984v-1.969h18v1.969h-18zM3 6h18v2.016h-18v-2.016zM3 18v-2.016h12v2.016h-12z"></path>
-</symbol>
-<symbol id="icon-placeholder" viewBox="0 0 32 32">
-<path d="M28 0h-24c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4v-24c0-2.2-1.8-4-4-4zM28 28h-24v-24h24v24z"></path>
 </symbol>
 </defs>
 </svg>

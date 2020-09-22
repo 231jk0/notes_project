@@ -2,6 +2,7 @@ import useNotes from 'notesContext/useNotes';
 import React from 'react';
 import { Note } from 'notesContext/notesReducer';
 import ReactMarkdown from 'react-markdown';
+import Icon from 'components/Icon';
 
 const NotesList = () => {
 	const notes = useNotes();
@@ -13,7 +14,10 @@ const NotesList = () => {
 					onClick={() => notes.add('default content')}
 					className="notes-grid__add-note-button"
 				>
-					+
+					<Icon
+						className="notes-grid__add-note-button-icon"
+						iconName="plus"
+					/>
 				</button>
 				{
 					notes.getAll().map((note: Note) => (
