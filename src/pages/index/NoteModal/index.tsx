@@ -9,14 +9,10 @@ const NoteModal = () => {
 	const [ source, setSource ] = useState('');
 
 	const selectedNote = notes.getSelected();
-	const { id: selectedId = ''} = selectedNote;
+	const { id: selectedId = '' } = selectedNote;
 
 	const isOpen = selectedId !== '';
 	const isEditModeActive = notes.isEditModeActive();
-
-	const closeModal = () => {
-		notes.close();
-	};
 
 	const goBack = () => {
 		isEditModeActive
@@ -48,7 +44,6 @@ const NoteModal = () => {
 	return (
 		<Modal
 			className="note-modal"
-			// onModalOverlayClick={closeModal}
 			isOpen={isOpen}
 		>
 			<div className="note-modal__buttons">

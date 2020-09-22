@@ -1,7 +1,14 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import { notesReducer, Note } from './notesReducer';
+import { notesReducer, Note, NotesState } from './notesReducer';
+import { NotesActionType } from 'notesContext/NotesActions/actionTypes';
 
-export const NoteContext = createContext({} as any);
+interface NoteContextInterface {
+	notesState: NotesState;
+	dispatch: React.Dispatch<NotesActionType>;
+}
+
+export const NoteContext = createContext({
+} as NoteContextInterface);
 
 const NoteProvider = (props: { children: React.ReactNode }) => {
 	const [
