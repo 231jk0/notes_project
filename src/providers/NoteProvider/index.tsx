@@ -1,10 +1,11 @@
-import { notesReducer, Note, NotesState } from './notesReducer';
-import { NOTES_STATE } from 'constants/localStorageKeys.constants';
-import { NotesActionType } from 'notesContext/NotesActions/actionTypes';
 import React, { createContext, useReducer, useEffect } from 'react';
+import { DATA } from 'constants/localStorageKeys.constants';
+import { NotesActionType } from 'providers/NoteProvider/actionTypes';
+import { notesReducer, NotesState, Note } from 'providers/NoteProvider/notesReducer';
+import { getObjectFromLocalStorage } from 'utils/browserStorage.util/getObjectFromLocalStorage';
 
 interface NoteContextInterface {
-	notesState: NotesState;
+	notes: NotesState;
 	dispatch: React.Dispatch<NotesActionType>;
 }
 
@@ -13,29 +14,29 @@ export const NoteContext = createContext({
 
 const NoteProvider = (props: { children: React.ReactNode }) => {
 	const [
-		notesState,
+		notes,
 		dispatch
 	] = useReducer(
 		notesReducer,
 		{},
 		() => {
-			const localData = localStorage.getItem(NOTES_STATE);
+			const data = getObjectFromLocalStorage<Note[]>(DATA) || [];
 
 			return {
 				currentlyOpen: '',
 				isEditModeActive: false,
-				data: (localData ? JSON.parse(localData) : []) as Note[]
+				data
 			};
 		}
 	);
 
 	useEffect(() => {
-		localStorage.setItem(NOTES_STATE, JSON.stringify(notesState.data));
-	}, [ notesState.data ]);
+		localStorage.setItem(DATA, JSON.stringify(notes.data));
+	}, [ notes.data ]);
 
 	return (
 		<NoteContext.Provider value={{
-			notesState,
+			notes,
 			dispatch
 		}}>
 			{ props.children }

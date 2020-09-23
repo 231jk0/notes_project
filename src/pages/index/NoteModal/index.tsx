@@ -1,8 +1,8 @@
-import Modal from 'components/Modal';
-import useNotes from 'notesContext/useNotes';
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import Icon from 'components/Icon';
+import Modal from 'components/Modal';
+import useNotes from 'providers/useNotes';
+import ReactMarkdown from 'react-markdown';
 
 const NoteModal = () => {
 	const notes = useNotes();

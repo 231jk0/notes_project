@@ -1,21 +1,24 @@
-import { NoteContext } from 'notesContext/NoteProvider';
-import { UPDATE_NOTE, ADD_NOTE, REMOVE_NOTE, OPEN_NOTE, CLOSE_NOTE, UPDATE_IS_EDIT_MODE_ACTIVE } from 'notesContext/NotesActions/actionNames';
 import { useContext } from 'react';
-import { Note } from 'notesContext/notesReducer';
+import { NoteContext } from 'providers/NoteProvider';
+import { UPDATE_NOTE, ADD_NOTE, REMOVE_NOTE, OPEN_NOTE, CLOSE_NOTE, UPDATE_IS_EDIT_MODE_ACTIVE } from 'providers/NoteProvider/actionNames';
+import { Note } from 'providers/NoteProvider/notesReducer';
 
 const useNotes = () => {
-	const { notesState, dispatch } = useContext(NoteContext);
+	const {
+		notes,
+		dispatch
+	} = useContext(NoteContext);
 
 	const getAll = () => {
-		return notesState?.data;
+		return notes?.data;
 	};
 
 	const getAllIds = () => {
-		return notesState.data.map(note => note.id);
+		return notes.data.map(note => note.id);
 	};
 
 	const get = (id: string) => {
-		return notesState.data.find(note => note.id === id);
+		return notes.data.find(note => note.id === id);
 	};
 
 	const save = (id: string, source: string) => {
@@ -56,15 +59,15 @@ const useNotes = () => {
 	};
 
 	const getSelectedId = () => {
-		return notesState.currentlyOpen;
+		return notes.currentlyOpen;
 	};
 
 	const getSelected = () => {
-		return notesState.data.find((note) => notesState.currentlyOpen === note.id) || {} as Note;
+		return notes.data.find((note) => notes.currentlyOpen === note.id) || {} as Note;
 	};
 
 	const isEditModeActive = () => {
-		return notesState.isEditModeActive;
+		return notes.isEditModeActive;
 	};
 
 	const setIsEditModeActive = (isActive: boolean) => {

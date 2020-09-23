@@ -1,7 +1,7 @@
-import NoteProvider from 'notesContext/NoteProvider';
+import React from 'react';
 import NoteModal from 'pages/index/NoteModal';
 import NotesList from 'pages/index/NotesList';
-import React from 'react';
+import NoteProvider from 'providers/NoteProvider';
 
 const HomePage = () => {
 	return (

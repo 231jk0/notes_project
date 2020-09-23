@@ -1,5 +1,5 @@
-import { ADD_NOTE, REMOVE_NOTE, UPDATE_NOTE, OPEN_NOTE, CLOSE_NOTE, UPDATE_IS_EDIT_MODE_ACTIVE } from 'notesContext/NotesActions/actionNames';
-import { NotesActionType } from 'notesContext/NotesActions/actionTypes';
+import { ADD_NOTE, REMOVE_NOTE, UPDATE_NOTE, OPEN_NOTE, CLOSE_NOTE, UPDATE_IS_EDIT_MODE_ACTIVE } from 'providers/NoteProvider/actionNames';
+import { NotesActionType } from 'providers/NoteProvider/actionTypes';
 import uuid from 'uuid/v4';
 
 export interface Note {

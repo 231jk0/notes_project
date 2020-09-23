@@ -1,8 +1,8 @@
+import React from 'react';
 import Icon from 'components/Icon';
 import { INITIAL_NOTE_SOURCE } from 'constants/notes.constants';
-import { Note } from 'notesContext/notesReducer';
-import useNotes from 'notesContext/useNotes';
-import React from 'react';
+import { Note } from 'providers/NoteProvider/notesReducer';
+import useNotes from 'providers/useNotes';
 import ReactMarkdown from 'react-markdown';
 
 const NotesList = () => {
