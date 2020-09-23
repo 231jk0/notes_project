@@ -1,0 +1,13 @@
+.overlay-base {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	background-color: $overlay-background;
+
+	@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+		backdrop-filter: blur(10px);
+	}
+}

@@ -1,0 +1,18 @@
+.modal {
+	@extend .overlay-base;
+
+	z-index: $modal-z-index;
+
+	&__content {
+		width: fit-content;
+		height: fit-content;
+		margin: auto;
+		padding: $padding-size-4;
+		background-color: $color-white;
+	}
+
+	&--is-open {
+		animation-name: fade-in;
+		animation-duration: .3s;
+	}
+}

@@ -1,0 +1,10 @@
+.icon-base {
+	width: 20px;
+	height: 20px;
+	transition: fill .3s;
+	fill: $color-grey;
+
+	&:hover {
+		fill: $color-primary;
+	}
+}

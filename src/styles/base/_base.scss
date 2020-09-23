@@ -4,7 +4,6 @@
 	box-sizing: inherit;
 	margin: 0;
 	padding: 0;
-	// -webkit-tap-highlight-color: transparent; // Remove highlight that appears over a link while it's being tapped (Mobile Phones and Tablets).
 }
 
 html {
@@ -22,7 +21,6 @@ label {
 	display: inline-block;
 	margin-bottom: $margin-size-3;
 }
-
 
 button::-moz-focus-inner {
 	border: 0;
