@@ -39,8 +39,6 @@ const NoteModal = () => {
 		setSource(event.target.value);
 	};
 
-	console.log('render');
-
 	return (
 		<Modal
 			className="note-modal"
@@ -73,7 +71,6 @@ const NoteModal = () => {
 					onClick={deleteNote}
 				/>
 			</div>
-
 			{
 				isEditModeActive
 					? (
@@ -90,7 +87,6 @@ const NoteModal = () => {
 							source={selectedNote.source}
 						/>
 					)
-
 			}
 		</Modal>
 	);

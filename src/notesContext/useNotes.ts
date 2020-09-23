@@ -1,6 +1,7 @@
 import { NoteContext } from 'notesContext/NoteProvider';
 import { UPDATE_NOTE, ADD_NOTE, REMOVE_NOTE, OPEN_NOTE, CLOSE_NOTE, UPDATE_IS_EDIT_MODE_ACTIVE } from 'notesContext/NotesActions/actionNames';
 import { useContext } from 'react';
+import { Note } from 'notesContext/notesReducer';
 
 const useNotes = () => {
 	const { notesState, dispatch } = useContext(NoteContext);
@@ -59,7 +60,7 @@ const useNotes = () => {
 	};
 
 	const getSelected = () => {
-		return notesState.data.find((note) => notesState.currentlyOpen === note.id);
+		return notesState.data.find((note) => notesState.currentlyOpen === note.id) || {} as Note;
 	};
 
 	const isEditModeActive = () => {

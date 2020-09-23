@@ -1,0 +1,10 @@
+@import "./margins";
+@import "./paddings";
+@import "./border-radius";
+@import "./colors";
+@import "./font-size";
+@import "./icon-sizes";
+@import "./z-index";
+
+$default-font-size: 1.6rem;
+$overlay-background: rgba($color-black, 0.7);

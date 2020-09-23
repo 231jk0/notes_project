@@ -1,1 +1,1 @@
-export const NOTES = 'notes';
+export const NOTES_STATE = 'notes_state';

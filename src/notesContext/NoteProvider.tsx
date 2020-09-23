@@ -1,6 +1,7 @@
-import React, { createContext, useReducer, useEffect } from 'react';
 import { notesReducer, Note, NotesState } from './notesReducer';
+import { NOTES_STATE } from 'constants/localStorageKeys.constants';
 import { NotesActionType } from 'notesContext/NotesActions/actionTypes';
+import React, { createContext, useReducer, useEffect } from 'react';
 
 interface NoteContextInterface {
 	notesState: NotesState;
@@ -18,7 +19,7 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 		notesReducer,
 		{},
 		() => {
-			const localData = localStorage.getItem('notesState');
+			const localData = localStorage.getItem(NOTES_STATE);
 
 			return {
 				currentlyOpen: '',
@@ -29,8 +30,8 @@ const NoteProvider = (props: { children: React.ReactNode }) => {
 	);
 
 	useEffect(() => {
-		localStorage.setItem('notesState', JSON.stringify(notesState.data));
-	}, [ notesState ]);
+		localStorage.setItem(NOTES_STATE, JSON.stringify(notesState.data));
+	}, [ notesState.data ]);
 
 	return (
 		<NoteContext.Provider value={{
