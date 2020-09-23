@@ -27,12 +27,16 @@ $buttons-height: 5rem;
 	}
 
 	&__source {
+		overflow: auto;
+		height: calc(#{$note-modal-height} - #{$buttons-height});
 		margin-left: $spacing-size-3;
 		font-size: $font-size-large-9;
 
 		ul {
 			padding-left: 8rem;
 		}
+
+		@include custom-scrollbar();
 	}
 
 	&__edit-note-textarea {

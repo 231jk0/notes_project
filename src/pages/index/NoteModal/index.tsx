@@ -75,7 +75,6 @@ const NoteModal = () => {
 				isEditModeActive
 					? (
 						<textarea
-							id="nesto"
 							className="note-modal__edit-note-textarea"
 							value={source}
 							rows={30}
