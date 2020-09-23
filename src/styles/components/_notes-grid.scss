@@ -2,23 +2,23 @@ $card-size: 25rem;
 $grid-gap: 4rem;
 
 .notes-grid {
-	padding: $spacing-size-3;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, $card-size);
 	align-items: center;
+	padding: $spacing-size-3;
+	grid-template-columns: repeat(auto-fit, $card-size);
 	grid-template-rows: repeat(auto-fit, $card-size);
 	grid-gap: $grid-gap;
 
 	& > * {
-		border-radius: $border-radius-1;
 		width: $card-size;
 		height: $card-size;
+		border-radius: $border-radius-1;
 	}
 
 	&__add-note-button {
-		background-color: $color-primary;
 		border: none;
-		
+		background-color: $color-primary;
+
 		@include elevation-level(3);
 
 		&:hover {
@@ -38,20 +38,19 @@ $grid-gap: 4rem;
 
 			background-color: $color-primary;
 		}
-		
 	}
 
 	&__add-note-button-icon {
-		fill: white;
 		width: 5rem;
 		height: 5rem;
+		fill: white;
 	}
 
 	&__item {
-		overflow: hidden;
 		position: relative;
-		border: 3px solid white;
+		overflow: hidden;
 		transition: border-color .2s;
+		border: 3px solid white;
 		font-size: calc(.25 * #{$font-size-large-9});
 
 		@include elevation-level(3);
