@@ -1,12 +1,12 @@
 import React from 'react';
 import NoteModal from 'pages/index/NoteModal';
-import NotesList from 'pages/index/NotesList';
+import NotesGrid from 'pages/index/NotesGrid';
 import NoteProvider from 'providers/NoteProvider';
 
 const HomePage = () => {
 	return (
 		<NoteProvider>
-			<NotesList />
+			<NotesGrid />
 			<NoteModal />
 		</NoteProvider>
 	);
