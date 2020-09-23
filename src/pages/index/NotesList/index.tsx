@@ -18,8 +18,6 @@ const NotesList = () => {
 
 	const data = notes.getAll() || [];
 
-	console.log('render');
-
 	return (
 		<div className="notes-grid">
 			<button

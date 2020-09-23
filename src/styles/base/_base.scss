@@ -30,3 +30,7 @@ button::-moz-focus-inner {
 	color: $color-white;
 	background-color: $color-primary;
 }
+
+textarea {
+	cursor: auto;
+}

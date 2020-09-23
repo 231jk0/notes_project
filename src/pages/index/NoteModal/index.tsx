@@ -83,7 +83,7 @@ const NoteModal = () => {
 						/>
 					) : (
 						<ReactMarkdown
-							className="notes-grid__item-source-modal"
+							className="note-modal__source"
 							source={selectedNote.source}
 						/>
 					)
