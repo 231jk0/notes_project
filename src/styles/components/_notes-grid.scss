@@ -2,7 +2,7 @@ $card-size: 25rem;
 $grid-gap: 4rem;
 
 .notes-grid {
-	padding: $padding-size-4;
+	padding: $spacing-size-3;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, $card-size);
 	align-items: center;
@@ -10,7 +10,7 @@ $grid-gap: 4rem;
 	grid-gap: $grid-gap;
 
 	& > * {
-		border-radius: $border-radius-3;
+		border-radius: $border-radius-1;
 		width: $card-size;
 		height: $card-size;
 	}
@@ -50,8 +50,7 @@ $grid-gap: 4rem;
 	&__item {
 		overflow: hidden;
 		position: relative;
-		border: 5px solid white;
-		padding: $padding-size-2;
+		border: 3px solid white;
 		transition: border-color .2s;
 		font-size: calc(.25 * #{$font-size-large-9});
 
@@ -63,8 +62,6 @@ $grid-gap: 4rem;
 	}
 
 	&__item-source {
-		padding: $padding-size-4;
-		position: absolute;
-		top: 0;
+		margin-left: $spacing-size-3;
 	}
 }
